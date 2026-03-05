@@ -1,2 +1,3 @@
 # python-Data-Analysis
-Collection of my Data Science projects and Python scripts.
+I analyzed over 200,000 IPL records to find the top batsmen using python
+![IPL Analysis chart](ipl_top_scorers_char.png)
