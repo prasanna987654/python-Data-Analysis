@@ -1,10 +1,12 @@
 import pandas as pd
-#1.Load your downloaded data
-#Make sure deliveries.csv is in the SAME folder as this script
-df = pd.read_csv('deliveries.csv')
-#2.Group data by batsman and sum their runs
-batsman_total = df.groupby('batter')['total_runs'].sum()
-#3.Get the Top 10 scorers
-top_10 = batsman_total.sort_values(ascending=False).head(10)
-print("---IPL Top 10 Run Scorers(2008-2024)---")
-print(top_10)
+import matplotlib.pyplot as plt
+ipl_df = pd.read_csv('deliveries_small.csv')
+player_runs = ipl_df.groupby('batter')['total_runs'].sum()
+best_players = player_runs.sort_values(ascending=False).head(10)
+plt.figure(figsize=(12,7))
+best_players.plot(kind='bar',color='teal')
+plt.title('IPL Leaders: Top 10 Run Scorers')
+plt.xlabel('Player')
+plt.ylabel('Runs Scored')
+plt.savefig('ipl_top_scorers_chart.png')
+print("Successfully generated the IPL chart!")
